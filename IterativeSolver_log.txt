@@ -1,0 +1,87 @@
+
+Iterative Solver log file
+
+
+>>> Input file :
+
+	1. rowPtr.csv
+	2. colInd.csv
+	3. value.csv
+
+>>> Condition :
+	The tested matrix is diagonal dominant
+
+>>> Parameters :
+	1. Matrix : Sparse Matrix  <input>
+	2. b : Input right hand side  <input>
+	3. RHS : Calculated right hand side  <output>
+	4. norm : norm of the vector b and RHS  <output>
+
+>>> Methods :
+	1. Jacobi Method
+	2. SOR Method
+
+>>> Testting :
+	Back substitution : check the norm of RHS and b
+
+>>> Performance :
+    
+    Jacobi :
+
+	case 1 : b = [1,0,0,0,0,0,...,0]
+	
+	How many iterations took: 2
+	Solution has been found! 
+	Time elapsed: 8.78475 s
+	free memory: 1.017609 GB 
+	used memory: 14.980507 GB
+	second norm of RHS and b: 5.79488e-05
+	
+	case 2 : b = [0,0,0,1,0,...,0,0]
+
+	How many iterations took: 1
+	Solution has been found! 
+	Time elapsed: 5.94063 s
+	free memory: 1.002396 GB 
+	used memory: 14.995468 GB
+	second norm of RHS and b: 5.10218e-05
+	
+	case 3 : b = [1,1,1,1,1,...,1,1]
+
+	How many iterations took: 4
+	Solution has been found! 
+	Time elapsed: 13.944 s
+	free memory: 1.026779 GB 
+	used memory: 14.971561 GB
+	second norm of RHS and b: 8.77386e-06
+
+    SOR :
+
+	case 1 : b = [1,0,0,0,0,0,...,0]
+	
+	How many iterations took: 14
+	Solution has been found! 
+	Time elapsed: 42.2388 s
+	free memory: 1.136398 GB 
+	used memory: 14.861504 GB
+	second norm of RHS and b: 6.10956e-05
+	
+	case 2 : b = [0,0,0,1,0,...,0,0]
+
+	How many iterations took: 6
+	Solution has been found! 
+	Time elapsed: 19.5752 s
+	free memory: 1.025887 GB 
+	used memory: 14.972080 GB
+	second norm of RHS and b: 0.000105438
+	
+	case 3 : b = [1,1,1,1,1,...,1,1]
+
+	How many iterations took: 14
+	Solution has been found! 
+	Time elapsed: 41.2205 s
+	free memory: 1.180561 GB 
+	used memory: 14.817162 GB
+	second norm of RHS and b: 0.000117312
+
+	

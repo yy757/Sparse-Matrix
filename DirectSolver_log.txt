@@ -1,0 +1,122 @@
+
+Direct Solver log file
+
+>>> Input file :
+	bcsstm20.mtx
+
+>>> Condition :
+	1. For the Cholesky Decomposition, the matrix has to be symmetric, positive definite matrix
+	   but doesn't has to be diagonal dominant, which means does not have to be a small condition number
+	2. For the Gaussian elimination, the matrix must be well-conditioned, which has a small condition number
+	   Usually, we make it diagonal dominant.
+
+>>> Paramaters :
+	1. Matrix : Sparse Matrix  <input>
+	2. b : Input right hand side  <input>  b = [1,1,1,1,...,1]
+	3. RHS : Calculated right hand side  <output>
+	4. norm : norm of the vector b and RHS  <output>
+	5. condition : the condition number of the matrix <output>
+	6. if symmetric : close to 0 means symmetric while large number means asymmetric <output>
+	7. sum of matrix : check the sum of all elements in the matrix to ensure the correctness
+		           close 0 means right while large number means wrong.
+
+>>> Methods :
+	1. Cholesky Decomposition
+	2. Gaussian Elimination
+
+>>> Testting :
+	Back substitution : check the norm of RHS and b
+
+
+>>> Performance :
+    1. Original matrix : 
+	
+	Cholesky Decomposition
+	sum of the matrix :-8.07922e-07
+	Condition number : inf
+	if symmetric :0
+	Solution has been found! 
+	Time elapsed: 0.234614 s
+	free memory: 0.302494 GB 
+	used memory: 15.236904 GB
+	second norm of RHS and b: 3.03641e-15
+     
+    2. Make diagonal dominant :
+
+	Cholesky Decomposition
+	Diagonal dominant
+	sum of the matrix :-1.68399e-11
+	Condition number : 1.00306
+	if symmetric :0
+	Solution has been found! 
+	Time elapsed: 0.239645 s
+	free memory: 0.312214 GB 
+	used memory: 15.247833 GB
+	second norm of RHS and b: 325.53
+
+	Gaussian Elimination : 
+	After diagonal dominant
+	check sum of the matrix :-1.68399e-11
+	Condition number : 1.00306
+	if symmetric :0
+	Solution has been found! 
+	Time elapsed: 1.13603 s
+	free memory: 0.281845 GB 
+	used memory: 15.272335 GB
+	second norm of RHS and b: 0
+
+    3. Gaussian elimination without pivoting :
+
+	Gaussian Elimination :
+	Without pivoting
+	check sum of the matrix :-1.68399e-11
+	Condition number : 1.00306if symmetric :0
+	Solution has been found! 
+	Time elapsed: 0.021724 s
+	free memory: 0.303257 GB 
+	used memory: 15.257126 GB
+	second norm of RHS and b: 0
+
+    4. Tested with the same matrix with pivoting for minimum fill in in Gaussian elimination
+	
+	check sum of the matrix :-8.07922e-07
+
+	Cholesky Method
+
+	Condition number : 31.6252if not symmetric :0
+	free memory: 0.388721 GB 
+	used memory: 15.177879 GB
+	Solution has been found! 
+	Time elapsed: 0.243923 s
+	second norm of RHS and b: 0.967864
+
+	Gaussian Elimination Method
+
+	Condition number : 31.6252free memory: 0.374294 GB 
+	used memory: 15.193039 GB
+	Solution has been found! 
+	Time elapsed: 1.10874 s
+	second norm of RHS and b: 0
+
+    5. Tested with the same matrix without pivoting in in Gaussian elimination
+
+	check sum of the matrix :-8.07922e-07
+
+	Cholesky Method
+
+	Condition number : 31.6252
+	if not symmetric :0
+	free memory: 0.375317 GB 
+	used memory: 15.190426 GB
+	Solution has been found! 
+	Time elapsed: 0.238942 s
+	second norm of RHS and b: 0.967864
+
+	Gaussian Elimination Method
+
+	Condition number : 31.6252
+	free memory: 0.367016 GB 
+	used memory: 15.198902 GB
+	Solution has been found! 
+	Time elapsed: 0.018095 s
+	second norm of RHS and b: 0
